@@ -29,13 +29,22 @@ $ docker run -i -t -p 3000:3000 [image id]
 ```
 
 ### Explanation Dockerfile
-• FROM node:8.11.3 as build-deps-custom => start from node base image. We can name it by adding 'as' command
-• ENV NPM_CONFIG_LOGLEVEL warn => less messages during docker build
-• ARG app_env => allows app_env to be set during build (defaults to empty string)
-• ENV APP_ENV $app_env => sets an environment variable to app_env argument, this way the variable will persist in the container for use in code
-• RUN mkdir -p /frontend => creates a folder to add code into
-• WORKDIR /frontend => all subsequent commands will now be run from inside this folder
-• COPY . ./ => copy all the code in the local frontend directory into the container’s working directory
-• RUN npm install => install dependencies (Make sure to add node_modules to your .dockerignore incase you accidentally install locally.)
-• CMD if ... => If the arg_env was set as production then this will install http-server, and then build & serve optimized static files. Otherwise uses create-react-app’s hot reloading tool (basically webpack—watch)
-• Expose 3000 => The create-react-app runs on port 3000 by default
+a. FROM node:8.11.3 as build-deps-custom => start from node base image. We can name it by adding 'as' command
+
+b. ENV NPM_CONFIG_LOGLEVEL warn => less messages during docker build
+
+c. ARG app_env => allows app_env to be set during build (defaults to empty string)
+
+d. ENV APP_ENV $app_env => sets an environment variable to app_env argument, this way the variable will persist in the container for use in code
+
+f. RUN mkdir -p /frontend => creates a folder to add code into
+
+g. WORKDIR /frontend => all subsequent commands will now be run from inside this folder
+
+h. COPY . ./ => copy all the code in the local frontend directory into the container’s working directory
+
+i. RUN npm install => install dependencies (Make sure to add node_modules to your .dockerignore incase you accidentally install locally.)
+
+j. CMD if ... => If the arg_env was set as production then this will install http-server, and then build & serve optimized static files. Otherwise uses create-react-app’s hot reloading tool (basically webpack—watch)
+
+k. Expose 3000 => The create-react-app runs on port 3000 by default
