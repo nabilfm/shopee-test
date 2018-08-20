@@ -29,7 +29,6 @@ $ docker run -i -t -p 3000:3000 [image id]
 ```
 
 ### Explanation Dockerfile
-
 • FROM node:8.11.3 as build-deps-custom => start from node base image. We can name it by adding 'as' command
 • ENV NPM_CONFIG_LOGLEVEL warn => less messages during docker build
 • ARG app_env => allows app_env to be set during build (defaults to empty string)
