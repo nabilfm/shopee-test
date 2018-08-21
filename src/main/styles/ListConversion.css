@@ -1,0 +1,4 @@
+.list-conversion{
+    display: flex;
+    flex-direction: column;
+}
