@@ -28,8 +28,9 @@ export default compose(
     mapDispatchToProps
   ),
   withHandlers({
-    onChange: ({setMainConversionValue})=>(event)=>{
-      setMainConversionValue(isNaN(parseInt(event.target.value,10))?0:parseInt(event.target.value,10))
+    onChange: ({setMainConversionValue})=>(values)=>{
+      const {value} = values;
+      setMainConversionValue(isNaN(parseInt(value,10))?0:parseInt(value,10))
     }
   }),
   lifecycle({
