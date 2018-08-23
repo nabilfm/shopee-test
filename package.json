@@ -25,6 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker-build": "docker build . -t nabilfm/react-docker-custom",
+    "docker-run": " docker run -it -p 3000:3000 -v /Users/mpm-rs-02/Documents/react/react-docker/src:/frontend/src [image-tag]",
+    "docker-push": "docker push nabilfm/react-docker:currency-exchange"
   }
 }
