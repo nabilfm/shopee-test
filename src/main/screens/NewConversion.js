@@ -58,7 +58,7 @@ export default compose(
         return alert('Please choose Conversion first');
       } else {
         let search = listConversion.findIndex(lc=>lc.type===selectedConversion);
-        if (search===-1) {
+        if (search === -1) {
           requestAddNewConversion(
             {
               type: selectedConversion,
@@ -66,9 +66,11 @@ export default compose(
               val: rates[selectedConversion]
             }
           );
-          setSelectedConversion('');
-          setAddNewConversion(false);
+        } else {
+          alert('Currency already exists');
         }
+        setSelectedConversion('');
+        setAddNewConversion(false);
       }
     },
     toggleDropDown: ({setDropDownOpen, isDropDownOpen})=>()=>{
