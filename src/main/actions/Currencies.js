@@ -40,7 +40,7 @@ export const addNewConversion=(data)=>(dispatch)=>{
 
 export const getLatestRates=()=>(dispatch)=>{
   dispatch(requestGetRatesLatest());
-  return axios.get('https://exchangeratesapi.io/api/latest?base=USD')
+  return axios.get('https://api.exchangeratesapi.io/latest?base=USD')
     .then(response=>{
       dispatch(receiveRatesLatest(response.data.rates))
     })
